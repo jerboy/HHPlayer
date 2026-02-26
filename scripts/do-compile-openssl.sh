@@ -137,7 +137,7 @@ elif [ "$FF_PLATFORM" = "tvOS" ]; then
     elif [ "$FF_ARCH_FULL" = "arm64-simulator" ]; then
         FF_BUILD_NAME="openssl-arm64-simulator"
         FF_XCRUN_PLATFORM="AppleTVSimulator"
-        FF_XCRUN_OSVERSION="-DHAVE_FORK=0 -mtvos-version-min=13.0"
+        FF_XCRUN_OSVERSION="-DHAVE_FORK=0 -mtvos-simulator-version-min=13.0"
         OPENSSL_CFG_FLAGS="darwin64-arm64-cc no-asm $OPENSSL_CFG_FLAGS"
     else
         echo "unknown architecture $FF_PLATFORM, $FF_ARCH";
