@@ -16,8 +16,8 @@
 # limitations under the License.
 #
 
-IJK_FFMPEG_UPSTREAM=https://github.com/libobjc/FFmpeg.git
-IJK_FFMPEG_FORK=https://github.com/libobjc/FFmpeg.git
+IJK_FFMPEG_UPSTREAM=https://github.com/FFmpeg/FFmpeg.git
+IJK_FFMPEG_FORK=https://github.com/FFmpeg/FFmpeg.git
 IJK_FFMPEG_COMMIT=$2
 IJK_FFMPEG_LOCAL_REPO=build/extra/ffmpeg
 
@@ -27,9 +27,12 @@ IJK_GASP_LOCAL_REPO=build/extra/gas-preprocessor
 set -e
 
 FF_ALL_ARCHS=
-FF_ALL_ARCHS_IOS="arm64"
-FF_ALL_ARCHS_TVOS="arm64"
-FF_ALL_ARCHS_MACOS="arm64 x86_64"
+FF_ALL_ARCHS_IOS_DEFAULT="arm64"
+FF_ALL_ARCHS_TVOS_DEFAULT="arm64"
+FF_ALL_ARCHS_MACOS_DEFAULT="arm64 x86_64"
+FF_ALL_ARCHS_IOS="${FF_ALL_ARCHS_IOS:-$FF_ALL_ARCHS_IOS_DEFAULT}"
+FF_ALL_ARCHS_TVOS="${FF_ALL_ARCHS_TVOS:-$FF_ALL_ARCHS_TVOS_DEFAULT}"
+FF_ALL_ARCHS_MACOS="${FF_ALL_ARCHS_MACOS:-$FF_ALL_ARCHS_MACOS_DEFAULT}"
 
 #FF_ALL_ARCHS_IOS="x86_64 arm64-simulator"
 #FF_ALL_ARCHS_TVOS="x86_64 arm64-simulator"
@@ -73,4 +76,3 @@ fi
 
 pull_common
 pull_fork_all
-

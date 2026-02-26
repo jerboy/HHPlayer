@@ -1,4 +1,4 @@
-framework module SGPlayer {
+framework module HHPlayer {
     umbrella header "SGPlayer.h"
     export *
     module * { export * }

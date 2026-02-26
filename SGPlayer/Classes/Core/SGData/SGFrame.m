@@ -9,6 +9,35 @@
 #import "SGFrame.h"
 #import "SGFrame+Internal.h"
 #import "SGObjectPool.h"
+#import <limits.h>
+
+static int SGFrameDataSize(AVFrame *frame)
+{
+#if LIBAVUTIL_VERSION_MAJOR < 60
+    return frame->pkt_size;
+#else
+    if (!frame) {
+        return 0;
+    }
+    size_t total = 0;
+    for (int i = 0; i < AV_NUM_DATA_POINTERS; i++) {
+        AVBufferRef *buffer = frame->buf[i];
+        if (buffer) {
+            total += buffer->size;
+        }
+    }
+    for (int i = 0; i < frame->nb_extended_buf; i++) {
+        AVBufferRef *buffer = frame->extended_buf[i];
+        if (buffer) {
+            total += buffer->size;
+        }
+    }
+    if (total > INT_MAX) {
+        return INT_MAX;
+    }
+    return (int)total;
+#endif
+}
 
 @interface SGFrame ()
 
@@ -110,7 +139,7 @@
     AVFrame *frame = self->_core;
     AVRational timebase = self->_codecDescriptor.timebase;
     SGCodecDescriptor *cd = self->_codecDescriptor;
-    self->_size = frame->pkt_size;
+    self->_size = SGFrameDataSize(frame);
     self->_track = cd.track;
     self->_metadata = cd.metadata;
     CMTime duration = CMTimeMake(frame->duration * timebase.num, timebase.den);
@@ -137,7 +166,7 @@
 {
     AVFrame *frame = self->_core;
     SGCodecDescriptor *cd = self->_codecDescriptor;
-    self->_size = frame->pkt_size;
+    self->_size = SGFrameDataSize(frame);
     self->_track = cd.track;
     self->_metadata = cd.metadata;
     self->_duration = duration;

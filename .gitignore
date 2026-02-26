@@ -16,3 +16,7 @@ DerivedData
 *.xcuserstate
 .DS_Store
 framework/
+Artifacts/HHPlayer.xcframework
+Artifacts/HHPlayer.xcframework.zip
+Artifacts/HHPlayer.xcframework.checksum.txt
+build/spm/

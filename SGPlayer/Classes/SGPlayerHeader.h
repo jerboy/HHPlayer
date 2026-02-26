@@ -11,7 +11,73 @@
 
 #import <Foundation/Foundation.h>
 
-#if __has_include(<SGPlayer/SGPlayer.h>)
+#if __has_include(<HHPlayer/SGPlayer.h>)
+
+FOUNDATION_EXPORT double SGPlayerVersionNumber;
+FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
+
+#import <HHPlayer/SGTime.h>
+#import <HHPlayer/SGError.h>
+#import <HHPlayer/SGDefines.h>
+
+#import <HHPlayer/SGOptions.h>
+#import <HHPlayer/SGDemuxerOptions.h>
+#import <HHPlayer/SGDecoderOptions.h>
+#import <HHPlayer/SGProcessorOptions.h>
+
+#import <HHPlayer/SGAudioDescriptor.h>
+#import <HHPlayer/SGVideoDescriptor.h>
+
+#import <HHPlayer/SGAsset.h>
+#import <HHPlayer/SGURLAsset.h>
+#import <HHPlayer/SGMutableAsset.h>
+
+#import <HHPlayer/SGTrack.h>
+#import <HHPlayer/SGMutableTrack.h>
+#import <HHPlayer/SGTrackSelection.h>
+
+#import <HHPlayer/SGSegment.h>
+#import <HHPlayer/SGURLSegment.h>
+#import <HHPlayer/SGPaddingSegment.h>
+
+#import <HHPlayer/SGDemuxable.h>
+#import <HHPlayer/SGURLDemuxer.h>
+
+#import <HHPlayer/SGPlayerItem.h>
+#import <HHPlayer/SGFrameReader.h>
+#import <HHPlayer/SGFrameOutput.h>
+#import <HHPlayer/SGPacketOutput.h>
+
+#import <HHPlayer/SGClock.h>
+#import <HHPlayer/SGVRViewport.h>
+#import <HHPlayer/SGAudioRenderer.h>
+#import <HHPlayer/SGVideoRenderer.h>
+
+#import <HHPlayer/SGData.h>
+#import <HHPlayer/SGFrame.h>
+#import <HHPlayer/SGCapacity.h>
+#import <HHPlayer/SGAudioFrame.h>
+#import <HHPlayer/SGVideoFrame.h>
+
+#import <HHPlayer/SGProcessor.h>
+#import <HHPlayer/SGAudioProcessor.h>
+#import <HHPlayer/SGVideoProcessor.h>
+
+#import <HHPlayer/SGSonic.h>
+#import <HHPlayer/SGSWScale.h>
+#import <HHPlayer/SGSWResample.h>
+#import <HHPlayer/SGAudioMixer.h>
+#import <HHPlayer/SGAudioMixerUnit.h>
+#import <HHPlayer/SGAudioFormatter.h>
+
+#import <HHPlayer/SGPLFView.h>
+#import <HHPlayer/SGPLFImage.h>
+#import <HHPlayer/SGPLFColor.h>
+#import <HHPlayer/SGPLFObject.h>
+#import <HHPlayer/SGPLFScreen.h>
+#import <HHPlayer/SGPLFTargets.h>
+
+#elif __has_include(<SGPlayer/SGPlayer.h>)
 
 FOUNDATION_EXPORT double SGPlayerVersionNumber;
 FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
